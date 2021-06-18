@@ -158,19 +158,19 @@ google.charts.load('current', {'packages':['corechart']});
 <br/>
 <div id="div">
 <div class="container-fluid">
-<b>CONFIRMED</b>
+<b>CONFIRMED CASES</b>
 <br/>
 <br/>
 <b><?php echo $content_arr['cases_time_series'][$len-1]['totalconfirmed']?></b>
 </div>
 <div class="container-fluid">
-<b>RECOVERED</b>
+<b>RECOVERED CASES</b>
 <br/>
 <br/>
 <b><?php echo $content_arr['cases_time_series'][$len-1]['totalrecovered']?></b>
 </div>
 <div class="container-fluid">
-<b>DECEASED</b>
+<b>DECEASED CASES</b>
 <br/>
 <br/>
 <b><?php echo $content_arr['cases_time_series'][$len-1]['totaldeceased']?></b>

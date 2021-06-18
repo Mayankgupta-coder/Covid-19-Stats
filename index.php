@@ -1,4 +1,6 @@
 <?php
+require('header.php');
+
 $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['cases_time_series']);
@@ -6,9 +8,10 @@ $len=count($content_arr['cases_time_series']);
 
 <html>
     <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-
+  
 google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -98,6 +101,13 @@ google.charts.load('current', {'packages':['corechart']});
         chart2.draw(data2, options2);
         
       }
+
+      $(window).resize(function(){
+     
+     drawChart();
+     drawChart1()
+     drawChart2();
+ });
 </script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -125,10 +135,14 @@ google.charts.load('current', {'packages':['corechart']});
             display:flex;
             flex-wrap:wrap;
         }
-      .chart{
-         width:1300px;
-         height:500px;
-      }
+        .chart {
+  width: 100%; 
+  min-height: 450px;
+}
+.chart1 {
+  width: 100%; 
+  min-height: 450px;
+}
       .text
       {
           text-align:center;
@@ -139,7 +153,7 @@ google.charts.load('current', {'packages':['corechart']});
         
 </head>
 <body>
-
+<br/>
 <div class="text">Covid-19 Data</div>
 <br/>
 <div id="div">
@@ -168,7 +182,7 @@ google.charts.load('current', {'packages':['corechart']});
     <div class="text">Statistical Analysis</div>
     <div id="curve_chart" class="chart" ></div>
     <p> Daily Confirmed Cases</P>
-    <div id="curve_chart1" class="chart" ></div>
+    <div id="curve_chart1" class="chart1" ></div>
     </div>
     <p> Daily Recovered Cases</P>
     <div id="curve_chart2"  class="chart"></div>

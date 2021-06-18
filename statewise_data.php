@@ -1,4 +1,5 @@
 <?php
+require('header.php');
 $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['statewise']);
@@ -8,6 +9,7 @@ $len=count($content_arr['statewise']);
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
+<br/><br/>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -20,6 +22,7 @@ $len=count($content_arr['statewise']);
     </tr>
   </thead>
   <tbody>
+  
       <?php 
       $c=0;
       for($i=1;$i<$len;$i++)

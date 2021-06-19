@@ -20,8 +20,8 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link active" href="statewise_data.php">Statewise Data</a>
-      <a class="nav-item nav-link active" href="graphs.php">Graphs</a>
-      <a class="nav-item nav-link active" href="#">Disabled</a>
+      <a class="nav-item nav-link active" href="graphs.php">Stats Graphs</a>
+     
     </div>
   </div>
 </nav>

@@ -5,12 +5,15 @@ require('function.php');
 $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['cases_time_series']);
+$len2=count($content_arr['statewise']);
+$len2=count($content_arr['tested']);
 ?>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300&family=Khand:wght@300&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital@1&display=swap');
@@ -77,10 +80,42 @@ $len=count($content_arr['cases_time_series']);
         transform: scale(1.1);
         cursor: pointer;
 }
+.v_div
+{
+    border:1px solid black;
+    height:50px;
+    width:370px;
+    margin-top:2%;
+    margin-left: auto;
+  margin-right: auto;
+    color:white;
+    text-align:center;
+    font-family: 'Fira Sans', sans-serif;
+    padding:10px;
+    font-size:18px;
+}
+#v_div1
+{
+    background-color:blue;
+}
+#v_div2
+{
+    background-color:Red;
+}
+#v_div3
+{
+    background-color:green;
+}
+#v_div4
+{
+    background-color:grey;
+}
+
+
 @media only screen and (min-width: 0px) and (max-width: 200px) {
     .container-fluid
         {
-            height:30px;
+            height:130px;
             width:120px;
             border:1px solid black;
             box-shadow: 1px 1px 2px 2px grey;
@@ -89,8 +124,36 @@ $len=count($content_arr['cases_time_series']);
             padding:30px 0px;
             border-radius:10px;
         }
+        .data1
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:darkred;
+        font-size:12px;
+      }
+      .data2
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:green;
+        font-size:12px;
+      }
+      .data3
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:Grey;
+        font-size:12px;
+      }
+      .data4
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:blue;
+        font-size:12px;
+      }
 }
-@media only screen and (min-width: 201px) and (max-width: 399px) {
+@media only screen and (min-width: 201px) and (max-width: 415px) {
     .container-fluid
         {
             height:130px;
@@ -131,7 +194,7 @@ $len=count($content_arr['cases_time_series']);
         font-size:15px;
       }
 }
-@media only screen and (min-width: 400px) and (max-width: 500px) {
+@media only screen and (min-width: 416px) and (max-width: 517px) {
     .container-fluid
         {
             height:120px;
@@ -172,6 +235,7 @@ $len=count($content_arr['cases_time_series']);
         font-size:20px;
       }
 }
+
         </style>
 </head>
 <body>
@@ -195,9 +259,26 @@ $active = $content_arr['statewise'][0]['active'];
 setlocale(LC_MONETARY, 'en_IN');
 $active = money_format('%!i', $active);
 
+$report = $content_arr['cases_time_series'][$len-1]['dailyconfirmed'];
+setlocale(LC_MONETARY, 'en_IN');
+$report  = money_format('%!i', $report );
+
+$recovered = $content_arr['cases_time_series'][$len-1]['dailyrecovered'];
+setlocale(LC_MONETARY, 'en_IN');
+$recovered = money_format('%!i', $recovered);
+
+$doses = $content_arr['tested'][$len2-1]['totaldosesadministered'];
+setlocale(LC_MONETARY, 'en_IN');
+$doses = money_format('%!i', $doses);
+
+$vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
+setlocale(LC_MONETARY, 'en_IN');
+$vaccine = money_format('%!i', $vaccine);
+ 
 ?>
+
 <br/><br/>
-<div class="text">Covid-19 Data</div>
+<div class="text">Covid-19 Dashboard</div>
 <br/><br/>
 <div id="div">
 
@@ -230,6 +311,11 @@ $active = money_format('%!i', $active);
 </div>
 
     </div>
-  
+  <div class="v_div" id="v_div1"><?php echo $report[0]?> Cases Reported Yesterday</div>
+  <div class="v_div" id="v_div2"><?php echo $recovered[0]?> People Recovered Yesterday</div>
+  <div class="v_div" id="v_div3"><?php echo $doses[0] ?>  Vaccine Doses Administered</div>
+  <div class="v_div" id="v_div4"><?php echo $vaccine[0] ?>  Total Indiviaduals Vaccinated</div >
+  <br/><br/>
+  <?php require('footer.php'); ?>
 </body
 </html>

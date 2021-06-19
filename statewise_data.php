@@ -11,6 +11,7 @@ $len=count($content_arr['statewise']);
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Benne&family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital@1&display=swap');
 #tableHolder
 {
 width: 95%;
@@ -23,6 +24,13 @@ th{
   color:blue;
   font-family: 'Benne', serif;
 }
+.text
+      {
+        font-family: 'Roboto', sans-serif;
+          text-align:center;
+          color:#9900cc;
+          font-size:40px;
+      }
 #state
 {
   color:red;
@@ -32,7 +40,9 @@ font-family: 'Crimson Text', serif;
 </style>
 </head>
 <body>
-<br/><br/>
+<br/>
+<div class="text">Statewise Data</div>
+<br/>
 <div  id="tableHolder" class="table-responsive-md">
 <table class="table table-striped"  width="1300">
   <thead>
@@ -95,4 +105,6 @@ font-family: 'Crimson Text', serif;
 </table>
 </div>
 </body>
+<br/><br/>
+<?php require('footer.php'); ?>
 </html>

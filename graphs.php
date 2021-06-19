@@ -285,4 +285,6 @@ google.charts.load('current', {'packages':['corechart']});
     </div>
     <p class="para">  Total Deceased Cases</P>
 </body>
+<br/><br/>
+<?php require('footer.php'); ?>
 </html>

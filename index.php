@@ -49,7 +49,7 @@ $len=count($content_arr['cases_time_series']);
       {
         font-family: 'Crimson Pro', serif;
         font-family: 'Khand', sans-serif;
-        color:red;
+        color:darkred;
         font-size:30px;
       }
       .data2

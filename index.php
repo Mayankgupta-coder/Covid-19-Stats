@@ -43,7 +43,7 @@ $len2=count($content_arr['tested']);
         }
         .text
       {
-        font-family: 'Roboto', sans-serif;
+       
           text-align:center;
           color:Red;
           font-size:40px;
@@ -290,7 +290,7 @@ $vaccine = money_format('%!i', $vaccine);
 </div>
 
 <div class="container-fluid">
-<b class="data4">Active</b>
+<b class="data4">ACTIVE</b>
 <br/>
 <br/>
 <b class="data4"><?php echo $active[0]?></b>

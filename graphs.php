@@ -250,7 +250,7 @@ google.charts.load('current', {'packages':['corechart']});
         }
       .text
       {
-        font-family: 'Roboto', sans-serif;
+        
           text-align:center;
           color:Red;
           font-size:40px;

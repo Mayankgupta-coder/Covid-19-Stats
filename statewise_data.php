@@ -26,7 +26,7 @@ th{
 }
 .text
       {
-        font-family: 'Roboto', sans-serif;
+        
           text-align:center;
           color:#9900cc;
           font-size:40px;

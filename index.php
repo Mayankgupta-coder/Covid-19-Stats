@@ -77,6 +77,101 @@ $len=count($content_arr['cases_time_series']);
         transform: scale(1.1);
         cursor: pointer;
 }
+@media only screen and (min-width: 0px) and (max-width: 200px) {
+    .container-fluid
+        {
+            height:30px;
+            width:120px;
+            border:1px solid black;
+            box-shadow: 1px 1px 2px 2px grey;
+            margin-bottom:15px;
+            text-align:Center;
+            padding:30px 0px;
+            border-radius:10px;
+        }
+}
+@media only screen and (min-width: 201px) and (max-width: 399px) {
+    .container-fluid
+        {
+            height:130px;
+            width:150px;
+            border:1px solid black;
+            box-shadow: 1px 1px 2px 2px grey;
+            margin-bottom:15px;
+            text-align:Center;
+            padding:30px 0px;
+            border-radius:10px;
+        }
+        .data1
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:darkred;
+        font-size:15px;
+      }
+      .data2
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:green;
+        font-size:15px;
+      }
+      .data3
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:Grey;
+        font-size:15px;
+      }
+      .data4
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:blue;
+        font-size:15px;
+      }
+}
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+    .container-fluid
+        {
+            height:120px;
+            width:200px;
+            border:1px solid black;
+            box-shadow: 1px 1px 2px 2px grey;
+            margin-bottom:15px;
+            text-align:Center;
+            padding:30px 0px;
+            border-radius:10px;
+        }
+        .data1
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:darkred;
+        font-size:20px;
+      }
+      .data2
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:green;
+        font-size:20px;
+      }
+      .data3
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:Grey;
+        font-size:20px;
+      }
+      .data4
+      {
+        font-family: 'Crimson Pro', serif;
+        font-family: 'Khand', sans-serif;
+        color:blue;
+        font-size:20px;
+      }
+}
         </style>
 </head>
 <body>

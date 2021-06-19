@@ -8,11 +8,33 @@ $len=count($content_arr['statewise']);
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Benne&family=Crimson+Text&display=swap');
+#tableHolder
+{
+width: 95%;
+height: 850px;
+overflow: scroll;
+margin-left:2%;
+margin-bottom:2%;
+}
+th{
+  color:blue;
+  font-family: 'Benne', serif;
+}
+#state
+{
+  color:red;
+  font-family: 'Benne', serif;
+font-family: 'Crimson Text', serif;
+}
+</style>
 </head>
 <body>
 <br/><br/>
-<div class="table-responsive-lg">
-<table class="table table-striped">
+<div  id="tableHolder" class="table-responsive-md">
+<table class="table table-striped"  width="1300">
   <thead>
     <tr>
       <th scope="col" width="30%">State/UT</th>
@@ -55,7 +77,7 @@ $len=count($content_arr['statewise']);
           $deceased = money_format('%!i', $deceased);
         ?>
       
-      <td width="30%"><?php echo $content_arr['statewise'][$i]['state']?></td>
+      <td width="30%" id="state"><?php echo $content_arr['statewise'][$i]['state']?></td>
       <td width="20%"><?php echo $active[0]?></td>
       <td width="20%"><?php echo $confirm[0]?></td>
       <td width="20%"><?php echo $recover[0]?></td>

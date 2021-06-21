@@ -47,7 +47,7 @@ $len2=count($content_arr['tested']);
        
           text-align:center;
           color:Red;
-          font-size:40px;
+          font-size:35px;
           font-family: 'Poppins', sans-serif;
       }
       .data1

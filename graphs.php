@@ -5,6 +5,7 @@ require('function.php');
 $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['cases_time_series']);
+$len1=count($content_arr['tested']);
 ?>
 
 <html>
@@ -199,6 +200,68 @@ google.charts.load('current', {'packages':['corechart']});
       }
 
 
+ //   Total Registration
+
+ google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart6);
+
+      function drawChart6() {
+        var data6 = google.visualization.arrayToDataTable([
+          ['registration', ''],
+          <?php for($i=12;$i>=1;$i--)
+          {
+              $date=$content_arr['tested'][$len1-$i]['testedasof'];
+              ?>
+          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsregistered']?>],
+          
+          <?php
+          }
+          ?>
+        ]);
+
+        var options6= {
+          
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart6 = new google.visualization.LineChart(document.getElementById('curve_chart6'));
+
+        chart6.draw(data6, options6);
+        
+      }
+
+      //   Total vaccination
+
+ google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart7);
+
+      function drawChart7() {
+        var data7 = google.visualization.arrayToDataTable([
+          ['registration', ''],
+          <?php for($i=12;$i>=1;$i--)
+          {
+              $date=$content_arr['tested'][$len1-$i]['testedasof'];
+              ?>
+          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsvaccinated']?>],
+          
+          <?php
+          }
+          ?>
+        ]);
+
+        var options7= {
+          
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart7 = new google.visualization.LineChart(document.getElementById('curve_chart7'));
+
+        chart7.draw(data7, options7);
+        
+      }
+
       $(window).resize(function(){
      
      drawChart();
@@ -207,6 +270,8 @@ google.charts.load('current', {'packages':['corechart']});
      drawChart3();
      drawChart4();
      drawChart5();
+     drawChart6();
+     drawChart7();
  });
 
  
@@ -245,14 +310,7 @@ google.charts.load('current', {'packages':['corechart']});
         width: 100%; 
         min-height: 450px;
         }
-        .chart_div {  
-        display:flex;
-        flex-wrap:wrap;
-        }
-        .chart_div_class
-        {
-          width:50%;
-        }
+       
       .text
       {
         
@@ -265,6 +323,16 @@ google.charts.load('current', {'packages':['corechart']});
      {
         font-family: 'Libre Baskerville', serif;
         font-family: 'Roboto', sans-serif;
+     }
+     @media only screen and (min-width: 760px) {
+      .chart_div {  
+        display:flex;
+        flex-wrap:wrap;
+        }
+        .chart_div_class
+        {
+          width:50%;
+        }
      }
         </style>
         
@@ -299,17 +367,30 @@ google.charts.load('current', {'packages':['corechart']});
 </div>
 
 <div class="chart_div">
-    <div class="chart_div_class">
-    <div id="curve_chart4"  class="chart"></div>
-    <p class="para">  Total Recovered Cases</P>
-    </div>
+  <div class="chart_div_class">
+      <div id="curve_chart4"  class="chart"></div>
+      <p class="para">  Total Recovered Cases</P>
+      </div>
 
-    <div class="chart_div_class">
-    <div id="curve_chart5"  class="chart"></div>
-    <p class="para">  Total Deceased Cases</P>
-    </div>
-    </div>
-    </div>
+      <div class="chart_div_class">
+      <div id="curve_chart5"  class="chart"></div>
+      <p class="para">  Total Deceased Cases</P>
+  </div>
+</div>
+  </div>
+
+  <div class="chart_div">
+  <div class="chart_div_class">
+      <div id="curve_chart6"  class="chart"></div>
+      <p class="para">  Total Individuals Registered For Vaccination</P>
+      </div>
+
+      <div class="chart_div_class">
+      <div id="curve_chart7"  class="chart"></div>
+      <p class="para">  Total Individuals Vaccinated</P>
+      </div>
+  </div>
+</div>
 </body>
 <br/><br/>
 <?php require('footer.php'); ?>

@@ -98,19 +98,19 @@ $len2=count($content_arr['tested']);
 }
 #v_div1
 {
-    background-color:blue;
+    background-color:#4d4dff;
 }
 #v_div2
 {
-    background-color:Red;
+    background-color:#ff3333;
 }
 #v_div3
 {
-    background-color:green;
+    background-color:#00b300;
 }
 #v_div4
 {
-    background-color:grey;
+    background-color:#a6a6a6;
 }
 
 

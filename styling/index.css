@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300&family=Khand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital@1&display=swap');
+    #div2
+    {
+        background-image:url('images/recovered_cases.jpg');
+    }
+    p
+    {
+        text-align:center;
+    }
+    .container-fluid
+    {
+        height:180px;
+        width:250px;
+        border:1px solid black;
+        box-shadow: 1px 1px 2px 2px grey;
+        margin-bottom:15px;
+        text-align:Center;
+        padding:30px 0px;
+        border-radius:10px;
+    }
+    #div
+    {
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .text
+  {
+   
+      text-align:center;
+      color:Red;
+      font-size:35px;
+      font-family: 'Poppins', sans-serif;
+  }
+  .data1
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:darkred;
+    font-size:30px;
+  }
+  .data2
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:green;
+    font-size:30px;
+  }
+  .data3
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:Grey;
+    font-size:30px;
+  }
+  .data4
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:blue;
+    font-size:30px;
+  }
+  .container-fluid:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.v_div
+{
+border:1px solid black;
+height:50px;
+width:370px;
+margin-top:2%;
+margin-left: auto;
+margin-right: auto;
+color:white;
+text-align:center;
+font-family: 'Fira Sans', sans-serif;
+padding:10px;
+font-size:18px;
+}
+#v_div1
+{
+background-color:#4d4dff;
+}
+#v_div2
+{
+background-color:#ff3333;
+}
+#v_div3
+{
+background-color:#00b300;
+}
+#v_div4
+{
+background-color:#a6a6a6;
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 200px) {
+.container-fluid
+    {
+        height:130px;
+        width:120px;
+        border:1px solid black;
+        box-shadow: 1px 1px 2px 2px grey;
+        margin-bottom:15px;
+        text-align:Center;
+        padding:30px 0px;
+        border-radius:10px;
+    }
+    .data1
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:darkred;
+    font-size:12px;
+  }
+  .data2
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:green;
+    font-size:12px;
+  }
+  .data3
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:Grey;
+    font-size:12px;
+  }
+  .data4
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:blue;
+    font-size:12px;
+  }
+}
+@media only screen and (min-width: 201px) and (max-width: 415px) {
+.container-fluid
+    {
+        height:130px;
+        width:150px;
+        border:1px solid black;
+        box-shadow: 1px 1px 2px 2px grey;
+        margin-bottom:15px;
+        text-align:Center;
+        padding:30px 0px;
+        border-radius:10px;
+    }
+    .data1
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:darkred;
+    font-size:15px;
+  }
+  .data2
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:green;
+    font-size:15px;
+  }
+  .data3
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:Grey;
+    font-size:15px;
+  }
+  .data4
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:blue;
+    font-size:15px;
+  }
+}
+@media only screen and (min-width: 416px) and (max-width: 517px) {
+.container-fluid
+    {
+        height:120px;
+        width:200px;
+        border:1px solid black;
+        box-shadow: 1px 1px 2px 2px grey;
+        margin-bottom:15px;
+        text-align:Center;
+        padding:30px 0px;
+        border-radius:10px;
+    }
+    .data1
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:darkred;
+    font-size:20px;
+  }
+  .data2
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:green;
+    font-size:20px;
+  }
+  .data3
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:Grey;
+    font-size:20px;
+  }
+  .data4
+  {
+    font-family: 'Crimson Pro', serif;
+    font-family: 'Khand', sans-serif;
+    color:blue;
+    font-size:20px;
+  }
+}

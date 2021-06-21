@@ -10,10 +10,11 @@ $len1=count($content_arr['tested']);
 
 <html>
     <head>
+    <link rel="stylesheet" href="styling/graph.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-  
+    
 
 //   Daily Confirmed
 google.charts.load('current', {'packages':['corechart']});
@@ -277,65 +278,7 @@ google.charts.load('current', {'packages':['corechart']});
  
 </script>
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital@1&display=swap');
-        #div2
-        {
-            background-image:url('images/recovered_cases.jpg');
-        }
-        p
-        {
-            text-align:center;
-        }
-        .container-fluid
-        {
-            height:150px;
-            width:200px;
-            border:1px solid black;
-            box-shadow: 1px 1px 2px 2px grey;
-            margin-bottom:8px;
-            text-align:Center;
-            padding:40px 0px;
-        }
-        #div
-        {
-            display:flex;
-            flex-wrap:wrap;
-        }
-        .chart {
-        width: 100%; 
-        min-height: 450px;
-        }
-       
-      .text
-      {
-        
-          text-align:center;
-          color:Red;
-          font-size:40px;
-          font-family: 'Poppins', sans-serif;
-      }
-     .para
-     {
-        font-family: 'Libre Baskerville', serif;
-        font-family: 'Roboto', sans-serif;
-     }
-     @media only screen and (min-width: 760px) {
-      .chart_div {  
-        display:flex;
-        flex-wrap:wrap;
-        }
-        .chart_div_class
-        {
-          width:50%;
-        }
-     }
-        </style>
-        
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">      
 </head>
 <body>
     <br/>

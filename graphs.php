@@ -215,6 +215,7 @@ google.charts.load('current', {'packages':['corechart']});
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital@1&display=swap');
         #div2
@@ -254,6 +255,7 @@ google.charts.load('current', {'packages':['corechart']});
           text-align:center;
           color:Red;
           font-size:40px;
+          font-family: 'Poppins', sans-serif;
       }
      .para
      {

@@ -11,6 +11,7 @@ $len=count($content_arr['statewise']);
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Benne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Benne&family=Crimson+Text&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital@1&display=swap');
@@ -32,6 +33,7 @@ th{
           text-align:center;
           color:#9900cc;
           font-size:40px;
+          font-family: 'Poppins', sans-serif;
       }
 #state
 {

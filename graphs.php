@@ -245,9 +245,13 @@ google.charts.load('current', {'packages':['corechart']});
         width: 100%; 
         min-height: 450px;
         }
-        .chart1 {
-        width: 100%; 
-        min-height: 450px;
+        .chart_div {  
+        display:flex;
+        flex-wrap:wrap;
+        }
+        .chart_div_class
+        {
+          width:50%;
         }
       .text
       {
@@ -269,23 +273,43 @@ google.charts.load('current', {'packages':['corechart']});
     <br/>
     <br/>
     <div class="text">Statistical Analysis</div>
+     <div class="chart_div">
+     
+     <div class="chart_div_class">
     <div id="curve_chart" class="chart" ></div>
     <p class="para"> Daily Confirmed Cases</P>
+     </div>
+
+     <div class="chart_div_class">
     <div id="curve_chart1" class="chart" ></div>
-    </div>
     <p class="para"> Daily Recovered Cases</P>
+    </div>
+     </div>
+
+     <div class="chart_div">
+    <div class="chart_div_class">
     <div id="curve_chart2"  class="chart"></div>
-    </div>
     <p class="para"> Daily Deceased Cases</P>
+    </div>
+
+    <div class="chart_div_class">
     <div id="curve_chart3"  class="chart"></div>
-    </div>
     <p class="para">  Total Confirmed Cases</P>
+    </div>
+</div>
+
+<div class="chart_div">
+    <div class="chart_div_class">
     <div id="curve_chart4"  class="chart"></div>
-    </div>
     <p class="para">  Total Recovered Cases</P>
-    <div id="curve_chart5"  class="chart"></div>
     </div>
+
+    <div class="chart_div_class">
+    <div id="curve_chart5"  class="chart"></div>
     <p class="para">  Total Deceased Cases</P>
+    </div>
+    </div>
+    </div>
 </body>
 <br/><br/>
 <?php require('footer.php'); ?>

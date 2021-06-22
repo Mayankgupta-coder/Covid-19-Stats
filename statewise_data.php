@@ -50,8 +50,8 @@ $(document).ready(function(){
       <th scope="col" width="30%">State/UT</th>
       <th scope="col" width="20%">Active</th>
       <th scope="col" width="20%">Confirmed</th>
-      <th scope="col" width="20%">Death</th>
       <th scope="col" width="20%">Recovered</th>
+      <th scope="col" width="20%">Death</th>
     </tr>
   </thead>
   <tbody id="myTable">

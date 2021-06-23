@@ -211,9 +211,9 @@ google.charts.load('current', {'packages':['corechart']});
           ['registration', ''],
           <?php for($i=12;$i>=1;$i--)
           {
-              $date=$content_arr['tested'][$len1-$i]['testedasof'];
+              $date=$content_arr['tested'][$len1-$i-1]['testedasof'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsregistered']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i-1]['totalindividualsregistered']?>],
           
           <?php
           }
@@ -242,9 +242,9 @@ google.charts.load('current', {'packages':['corechart']});
           ['registration', ''],
           <?php for($i=12;$i>=1;$i--)
           {
-              $date=$content_arr['tested'][$len1-$i]['testedasof'];
+              $date=$content_arr['tested'][$len1-$i-1]['testedasof'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsvaccinated']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i-1]['totalindividualsvaccinated']?>],
           
           <?php
           }

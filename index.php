@@ -43,11 +43,11 @@ $recovered = $content_arr['cases_time_series'][$len-1]['dailyrecovered'];
 setlocale(LC_MONETARY, 'en_IN');
 $recovered = money_format('%!i', $recovered);
 
-$doses = $content_arr['tested'][$len2-2]['totaldosesadministered'];
+$doses = $content_arr['tested'][$len2-1]['totaldosesadministered'];
 setlocale(LC_MONETARY, 'en_IN');
 $doses = money_format('%!i', $doses);
 
-$vaccine= $content_arr['tested'][$len2-2]['totalindividualsvaccinated'];
+$vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
 setlocale(LC_MONETARY, 'en_IN');
 $vaccine = money_format('%!i', $vaccine);
  

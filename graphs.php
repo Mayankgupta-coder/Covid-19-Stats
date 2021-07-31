@@ -323,10 +323,10 @@ google.charts.load('current', {'packages':['corechart']});
   </div>
 
   <div class="chart_div">
-  <div class="chart_div_class">
+  <!-- <div class="chart_div_class">
       <div id="curve_chart6"  class="chart"></div>
       <p class="para">  Total Individuals Registered For Vaccination</P>
-      </div>
+      </div> -->
 
       <div class="chart_div_class">
       <div id="curve_chart7"  class="chart"></div>

@@ -51,6 +51,10 @@ $vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
 setlocale(LC_MONETARY, 'en_IN');
 $vaccine = money_format('%!i', $vaccine);
  
+
+$diff_confirm=$content_arr['cases_time_series'][$len-1]['dailyconfirmed']-$content_arr['cases_time_series'][$len-2]['dailyconfirmed'];
+$diff_recover=$content_arr['cases_time_series'][$len-1]['dailyrecovered']-$content_arr['cases_time_series'][$len-2]['dailyrecovered'];
+$diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$content_arr['cases_time_series'][$len-2]['dailydeceased'];
 ?>
 
 <br/><br/>
@@ -62,7 +66,20 @@ $vaccine = money_format('%!i', $vaccine);
 <b class="data1"> CONFIRMED </b>
 <br/>
 <br/>
-<b class="data1"><?php echo $confirm[0] ?></b>
+<b class="data1"><?php echo $confirm[0];?></b>
+<?php
+if($diff_confirm<0)
+{
+  ?>
+  <span style="color:red; margin-left:2%;font-size:18px;"> ↓<?php echo -$diff_confirm;?></span>
+    <?php
+}
+else{
+  ?>
+  <span style="color:red; margin-left:2%;font-size:18px;"> ↑<?php echo $diff_confirm;?></span>
+  <?php
+}
+?>
 </div>
 
 <div class="container-fluid">
@@ -77,6 +94,19 @@ $vaccine = money_format('%!i', $vaccine);
 <br/>
 <br/>
 <b class="data2"><?php echo $recover[0] ?></b>
+<?php
+if($diff_recover<0)
+{
+  ?>
+  <span style="color:green; margin-left:2%;font-size:18px;"> ↓<?php echo -$diff_recover;?></span>
+    <?php
+}
+else{
+  ?>
+  <span style="color:green; margin-left:2%;font-size:18px;"> ↑<?php echo $diff_recover;?></span>
+  <?php
+}
+?>
 </div>
 
 <div class="container-fluid">
@@ -84,6 +114,19 @@ $vaccine = money_format('%!i', $vaccine);
 <br/>
 <br/>
 <b class="data3"><?php echo $deceased[0]?></b>
+<?php
+if($diff_deceased<0)
+{
+  ?>
+  <span style="color:grey; margin-left:2%;font-size:18px;"> ↓<?php echo -$diff_deceased;?></span>
+    <?php
+}
+else{
+  ?>
+  <span style="color:grey; margin-left:2%;font-size:18px;"> ↑<?php echo $diff_deceased;?></span>
+  <?php
+}
+?>
 </div>
 
     </div>

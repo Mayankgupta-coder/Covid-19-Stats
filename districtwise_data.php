@@ -1,9 +1,22 @@
 <?php
 require('header.php');
 require('function.php');
-$content=file_get_contents('https://api.covid19india.org/data.json');
+$content=file_get_contents('https://api.covid19india.org/state_district_wise.json');
 $content_arr=json_decode($content,true);
-$len=count($content_arr['statewise']);
+
+if(isset($_GET['state']) && $_GET['state']!=NULL)
+{
+    $state=$_GET['state'];
+}
+else
+{
+    ?>
+    <script>
+        window.location.href="statewise_data.php";
+        </script>
+    <?php
+}
+
 ?>
 <html>
 <head>
@@ -26,7 +39,7 @@ $(document).ready(function(){
 </head>
 <body>
 <br/>
-<div class="text">Statewise Data</div>
+<div class="text">DistrictWise Data of <?php echo $state ?></div>
 
 <div class="container mt-4">
 
@@ -35,7 +48,7 @@ $(document).ready(function(){
             <div class="card p-4 mt-3">
                
                 <div class="d-flex justify-content-center px-5">
-                    <div class="search" > <input type="text" class="search-input" placeholder="Search State/UT..." name="" id="myInput"></div>
+                    <div class="search" > <input type="text" class="search-input" placeholder="Search District..." name="" id="myInput"></div>
                 </div>
                
             </div>
@@ -43,13 +56,11 @@ $(document).ready(function(){
     </div>
 </div>
 <br/>
-<h5 style="text-align:center">* Click on the state to get district wise data</h5>
-<br/>
 <div  id="tableHolder" class="table-responsive-md">
 <table class="table table-striped"  width="1300">
   <thead>
     <tr>
-      <th scope="col" width="30%">State/UT</th>
+      <th scope="col" width="30%">District</th>
       <th scope="col" width="20%">Active</th>
       <th scope="col" width="20%">Confirmed</th>
       <th scope="col" width="20%">Recovered</th>
@@ -60,33 +71,32 @@ $(document).ready(function(){
   
       <?php 
       $c=0;
-      for($i=1;$i<$len;$i++)
+      foreach((array_keys($content_arr[$state]['districtData'])) as $values)
       {
           
           ?>
           <?php 
-        if($content_arr['statewise'][$i]['state']!="State Unassigned")
-        {
-          $active = $content_arr['statewise'][$i]['active'];
+        
+          $active = $content_arr[$state]['districtData'][$values]['active'];
           setlocale(LC_MONETARY, 'en_IN');
           $active  = money_format('%!i', $active);
 
-          $confirm = $content_arr['statewise'][$i]['confirmed'];
+          $confirm = $content_arr[$state]['districtData'][$values]['confirmed'];
           setlocale(LC_MONETARY, 'en_IN');
           $confirm = money_format('%!i', $confirm);
 
 
-          $recover= $content_arr['statewise'][$i]['recovered'];
+          $recover= $content_arr[$state]['districtData'][$values]['recovered'];
           setlocale(LC_MONETARY, 'en_IN');
           $recover = money_format('%!i', $recover);
 
 
-          $deceased = $content_arr['statewise'][$i]['deaths'];
+          $deceased = $content_arr[$state]['districtData'][$values]['deceased'];
           setlocale(LC_MONETARY, 'en_IN');
           $deceased = money_format('%!i', $deceased);
           ?>
     <tr>
-      <td width="30%" id="state"><a href="districtwise_data.php?state=<?php echo $content_arr['statewise'][$i]['state']?>" target="_blank"><?php echo $content_arr['statewise'][$i]['state']?></a></td>
+      <td width="30%" id="state"><?php echo $values?></td>
       <td width="20%"><?php echo $active[0]?></td>
       <td width="20%"><?php echo $confirm[0]?></td>
       <td width="20%"><?php echo $recover[0]?></td>
@@ -96,10 +106,7 @@ $(document).ready(function(){
     $c++;
       }
       ?>
-    <?php
-    
-      }
-    ?>
+   
   </tbody>
 </table>
 </div>

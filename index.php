@@ -47,9 +47,9 @@ $doses = $content_arr['tested'][$len2-1]['totaldosesadministered'];
 setlocale(LC_MONETARY, 'en_IN');
 $doses = money_format('%!i', $doses);
 
-$vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
-setlocale(LC_MONETARY, 'en_IN');
-$vaccine = money_format('%!i', $vaccine);
+// $vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
+// setlocale(LC_MONETARY, 'en_IN');
+// $vaccine = money_format('%!i', $vaccine);
  
 
 $diff_confirm=$content_arr['cases_time_series'][$len-1]['dailyconfirmed']-$content_arr['cases_time_series'][$len-2]['dailyconfirmed'];
@@ -133,7 +133,7 @@ else{
   <div class="v_div" id="v_div1"><?php echo $report[0]?> Cases Reported Yesterday</div>
   <div class="v_div" id="v_div2"><?php echo $recovered[0]?> People Recovered Yesterday</div>
   <div class="v_div" id="v_div3"><?php echo $doses[0] ?>  Vaccine Doses Administered</div>
-  <div class="v_div" id="v_div4"><?php echo $vaccine[0] ?>  Total Indiviaduals Vaccinated</div >
+  <!-- <div class="v_div" id="v_div4"><?php echo $vaccine[0] ?>  Total Indiviaduals Vaccinated</div > -->
   <br/><br/>
   <?php require('footer.php'); ?>
 </body

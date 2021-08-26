@@ -10,13 +10,13 @@ $len2=count($content_arr['tested']);
 
 $content1=file_get_contents('https://data.covid19india.org/v4/data.json');
 $content_arr1=json_decode($content1,true);
-$len_c=count($content_arr1['AN']['districts']['Nicobars']['delta7']);
-echo $len_c;
+// $len_c=count($content_arr1['AN']['districts']['Nicobars']['delta7']);
+// echo $len_c;
 
-foreach((array_keys($content_arr1['UP']['districts'])) as $values)
-{
-  echo $values;
-}
+// foreach((array_keys($content_arr1['UP']['districts'])) as $values)
+// {
+//   echo $values;
+// }
 ?>
 <html>
 <head>

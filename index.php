@@ -7,6 +7,16 @@ $content_arr=json_decode($content,true);
 $len=count($content_arr['cases_time_series']);
 $len2=count($content_arr['statewise']);
 $len2=count($content_arr['tested']);
+
+$content1=file_get_contents('https://data.covid19india.org/v4/data.json');
+$content_arr1=json_decode($content1,true);
+$len_c=count($content_arr1['AN']['districts']['Nicobars']['delta7']);
+echo $len_c;
+
+foreach((array_keys($content_arr1['UP']['districts'])) as $values)
+{
+  echo $values;
+}
 ?>
 <html>
 <head>
@@ -20,16 +30,28 @@ $confirm = $content_arr['statewise'][0]['confirmed'];
 setlocale(LC_MONETARY, 'en_IN');
 $confirm = money_format('%!i', $confirm);
 
+$new_confirm = $content_arr1['TT']['total']['confirmed'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_confirm = money_format('%!i', $new_confirm);
+
 
 $recover= $content_arr['statewise'][0]['recovered'];
 setlocale(LC_MONETARY, 'en_IN');
 $recover = money_format('%!i', $recover);
+
+$new_recover =$content_arr1['TT']['total']['recovered'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_recover= money_format('%!i', $new_recover);
 
 
 $deceased = $content_arr['statewise'][0]['deaths'];
 setlocale(LC_MONETARY, 'en_IN');
 $deceased = money_format('%!i', $deceased);
 
+
+$new_deceased = $content_arr1['TT']['total']['deceased'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_deceased = money_format('%!i', $new_deceased);
 
 $active = $content_arr['statewise'][0]['active'];
 setlocale(LC_MONETARY, 'en_IN');
@@ -66,20 +88,8 @@ $diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$conte
 <b class="data1"> CONFIRMED </b>
 <br/>
 <br/>
-<b class="data1"><?php echo $confirm[0];?></b>
-<?php
-if($diff_confirm<0)
-{
-  ?>
-  <span style="color:red; margin-left:2%;font-size:18px;"> ↓<?php echo -$diff_confirm;?></span>
-    <?php
-}
-else{
-  ?>
-  <span style="color:red; margin-left:2%;font-size:18px;"> ↑<?php echo $diff_confirm;?></span>
-  <?php
-}
-?>
+<b class="data1"><?php echo $new_confirm[0];?></b>
+
 </div>
 
 <div class="container-fluid">
@@ -93,40 +103,16 @@ else{
 <b class="data2">RECOVERED</b>
 <br/>
 <br/>
-<b class="data2"><?php echo $recover[0] ?></b>
-<?php
-if($diff_recover<0)
-{
-  ?>
-  <span style="color:green; margin-left:2%;font-size:18px;"> ↓<?php echo -$diff_recover;?></span>
-    <?php
-}
-else{
-  ?>
-  <span style="color:green; margin-left:2%;font-size:18px;"> ↑<?php echo $diff_recover;?></span>
-  <?php
-}
-?>
+<b class="data2"><?php echo $new_recover[0];?></b>
+
 </div>
 
 <div class="container-fluid">
 <b class="data3">DECEASED</b>
 <br/>
 <br/>
-<b class="data3"><?php echo $deceased[0]?></b>
-<?php
-if($diff_deceased<0)
-{
-  ?>
-  <span style="color:grey; margin-left:2%;font-size:18px;"> ↓<?php echo -$diff_deceased;?></span>
-    <?php
-}
-else{
-  ?>
-  <span style="color:grey; margin-left:2%;font-size:18px;"> ↑<?php echo $diff_deceased;?></span>
-  <?php
-}
-?>
+<b class="data3"><?php echo $new_deceased[0];?></b>
+
 </div>
 
     </div>

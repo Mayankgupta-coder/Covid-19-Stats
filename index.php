@@ -10,6 +10,9 @@ $len2=count($content_arr['tested']);
 
 $content1=file_get_contents('https://data.covid19india.org/v4/data.json');
 $content_arr1=json_decode($content1,true);
+
+$content2=file_get_contents('http://covid19-nabeel6223.herokuapp.com/state_tests_data');
+$content_arr2=json_decode($content2,true);
 // $len_c=count($content_arr1['AN']['districts']['Nicobars']['delta7']);
 // echo $len_c;
 
@@ -57,6 +60,10 @@ $active = $content_arr['statewise'][0]['active'];
 setlocale(LC_MONETARY, 'en_IN');
 $active = money_format('%!i', $active);
 
+$new_active = $content_arr2['state_tests_data'][0]['active'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_active = money_format('%!i', $new_active);
+
 $report = $content_arr['cases_time_series'][$len-1]['dailyconfirmed'];
 setlocale(LC_MONETARY, 'en_IN');
 $report  = money_format('%!i', $report );
@@ -69,6 +76,9 @@ $doses = $content_arr['tested'][$len2-1]['totaldosesadministered'];
 setlocale(LC_MONETARY, 'en_IN');
 $doses = money_format('%!i', $doses);
 
+$new_doses = $content_arr2['state_tests_data'][0]['total_vaccines_administered'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_doses = money_format('%!i', $new_doses);
 // $vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
 // setlocale(LC_MONETARY, 'en_IN');
 // $vaccine = money_format('%!i', $vaccine);
@@ -96,7 +106,7 @@ $diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$conte
 <b class="data4">ACTIVE</b>
 <br/>
 <br/>
-<b class="data4"><?php echo $active[0]?></b>
+<b class="data4"><?php echo $new_active[0]?></b>
 </div>
 
 <div class="container-fluid">
@@ -118,7 +128,7 @@ $diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$conte
     </div>
   <div class="v_div" id="v_div1"><?php echo $report[0]?> Cases Reported Yesterday</div>
   <div class="v_div" id="v_div2"><?php echo $recovered[0]?> People Recovered Yesterday</div>
-  <div class="v_div" id="v_div3"><?php echo $doses[0] ?>  Vaccine Doses Administered</div>
+  <div class="v_div" id="v_div3"><?php echo $new_doses[0] ?>  Vaccine Doses Administered</div>
   <!-- <div class="v_div" id="v_div4"><?php echo $vaccine[0] ?>  Total Indiviaduals Vaccinated</div > -->
   <br/><br/>
   <?php require('footer.php'); ?>

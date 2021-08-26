@@ -4,6 +4,10 @@ require('function.php');
 $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['statewise']);
+
+$content1=file_get_contents('http://covid19-nabeel6223.herokuapp.com/state_tests_data');
+$content_arr1=json_decode($content1,true);
+$len1=count($content_arr1['state_tests_data']);
 ?>
 <html>
 <head>
@@ -60,33 +64,33 @@ $(document).ready(function(){
   
       <?php 
       $c=0;
-      for($i=1;$i<$len;$i++)
+      for($i=1;$i<$len1;$i++)
       {
           
           ?>
           <?php 
-        if($content_arr['statewise'][$i]['state']!="State Unassigned")
+        if($content_arr1['state_tests_data'][$i]['statename']!="State Unassigned")
         {
-          $active = $content_arr['statewise'][$i]['active'];
+          $active = $content_arr1['state_tests_data'][$i]['active'];
           setlocale(LC_MONETARY, 'en_IN');
           $active  = money_format('%!i', $active);
 
-          $confirm = $content_arr['statewise'][$i]['confirmed'];
+          $confirm = $content_arr1['state_tests_data'][$i]['confirmed'];
           setlocale(LC_MONETARY, 'en_IN');
           $confirm = money_format('%!i', $confirm);
 
 
-          $recover= $content_arr['statewise'][$i]['recovered'];
+          $recover= $content_arr1['state_tests_data'][$i]['recovered'];
           setlocale(LC_MONETARY, 'en_IN');
           $recover = money_format('%!i', $recover);
 
 
-          $deceased = $content_arr['statewise'][$i]['deaths'];
+          $deceased = $content_arr1['state_tests_data'][$i]['deceased'];
           setlocale(LC_MONETARY, 'en_IN');
           $deceased = money_format('%!i', $deceased);
           ?>
     <tr>
-      <td width="30%" id="state"><a href="districtwise_data.php?state=<?php echo $content_arr['statewise'][$i]['state']?>" target="_blank"><?php echo $content_arr['statewise'][$i]['state']?></a></td>
+      <td width="30%" id="state"><a href="districtwise_data.php?state=<?php echo $content_arr1['state_tests_data'][$i]['statename']?>" target="_blank"><?php echo $content_arr1['state_tests_data'][$i]['statename']?></a></td>
       <td width="20%"><?php echo $active[0]?></td>
       <td width="20%"><?php echo $confirm[0]?></td>
       <td width="20%"><?php echo $recover[0]?></td>

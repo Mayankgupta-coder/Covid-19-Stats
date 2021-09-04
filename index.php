@@ -1,7 +1,8 @@
 <?php
 require('header.php');
 require('function.php');
-
+$a=array();
+$b=array();
 $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['cases_time_series']);
@@ -13,13 +14,9 @@ $content_arr1=json_decode($content1,true);
 
 $content2=file_get_contents('http://covid19-nabeel6223.herokuapp.com/state_tests_data');
 $content_arr2=json_decode($content2,true);
-// $len_c=count($content_arr1['AN']['districts']['Nicobars']['delta7']);
-// echo $len_c;
 
-// foreach((array_keys($content_arr1['UP']['districts'])) as $values)
-// {
-//   echo $values;
-// }
+
+
 ?>
 <html>
 <head>
@@ -82,7 +79,47 @@ $new_doses = money_format('%!i', $new_doses);
 // $vaccine= $content_arr['tested'][$len2-1]['totalindividualsvaccinated'];
 // setlocale(LC_MONETARY, 'en_IN');
 // $vaccine = money_format('%!i', $vaccine);
- 
+
+function get_data()
+{
+
+  $file_name='covid_data.json';
+$content1=file_get_contents('https://data.covid19india.org/v4/data.json');
+$content_arr1=json_decode($content1,true);
+
+$content2=file_get_contents('http://covid19-nabeel6223.herokuapp.com/state_tests_data');
+$content_arr2=json_decode($content2,true);
+
+  $new_confirm = $content_arr1['TT']['total']['confirmed'];
+  setlocale(LC_MONETARY, 'en_IN');
+  $new_confirm = money_format('%!i', $new_confirm);
+
+  
+$new_deceased = $content_arr1['TT']['total']['deceased'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_deceased = money_format('%!i', $new_deceased);
+
+
+$new_active = $content_arr2['state_tests_data'][0]['active'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_active = money_format('%!i', $new_active);
+
+$date = $content_arr1['TT']['meta']['date'];
+
+  $current_data=file_get_contents("$file_name");
+  $array_data=json_decode($current_data,true);
+  $extra=array(
+  'confirm_cases' => $new_confirm[0],
+  'active_cases' => $new_active[0],
+  'deceased_cases' => $new_deceased[0],
+  'date' => $date,
+                                
+  );
+  $array_data[]=$extra;
+  return json_encode($array_data);
+}
+$file_name='covid_data.json';
+file_put_contents("$file_name",get_data());
 
 $diff_confirm=$content_arr['cases_time_series'][$len-1]['dailyconfirmed']-$content_arr['cases_time_series'][$len-2]['dailyconfirmed'];
 $diff_recover=$content_arr['cases_time_series'][$len-1]['dailyrecovered']-$content_arr['cases_time_series'][$len-2]['dailyrecovered'];

@@ -15,8 +15,10 @@ $content_arr1=json_decode($content1,true);
 $content2=file_get_contents('http://covid19-nabeel6223.herokuapp.com/state_tests_data');
 $content_arr2=json_decode($content2,true);
 
+$content3=file_get_contents('https://indiancovid-19.herokuapp.com/covid_data.json');
+$content_arr3=json_decode($content3,true);
 
-
+$l= count($content_arr3);
 ?>
 <html>
 <head>
@@ -119,8 +121,15 @@ $date = $content_arr1['TT']['meta']['date'];
   return json_encode($array_data);
 }
 $file_name='covid_data.json';
-file_put_contents("$file_name",get_data());
-
+// echo $content_arr3[$l-1]['confirm_cases'];
+// echo $new_confirm[0];
+// echo '<br/>';
+// echo (int)$content_arr3[$l-1]['confirm_cases']==(int)$new_confirm[0];
+if(( (int)$content_arr3[$l-1]['confirm_cases']==(int)$new_confirm[0])!=1)
+{
+ 
+ file_put_contents("$file_name",get_data());
+}
 $diff_confirm=$content_arr['cases_time_series'][$len-1]['dailyconfirmed']-$content_arr['cases_time_series'][$len-2]['dailyconfirmed'];
 $diff_recover=$content_arr['cases_time_series'][$len-1]['dailyrecovered']-$content_arr['cases_time_series'][$len-2]['dailyrecovered'];
 $diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$content_arr['cases_time_series'][$len-2]['dailydeceased'];

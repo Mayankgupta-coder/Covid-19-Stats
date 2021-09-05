@@ -111,6 +111,10 @@ $new_active = money_format('%!i', $new_active);
 
 $date = $content_arr1['TT']['meta']['date'];
 
+
+$str=$content_arr1['TT']['meta']['last_updated'];
+$updated_date=explode("T",$str);
+
   $current_data=file_get_contents("$file_name");
   $array_data=json_decode($current_data,true);
   $extra=array(
@@ -122,7 +126,7 @@ $date = $content_arr1['TT']['meta']['date'];
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
   'deceased_cases' => $new_recover[0],
-  'date' => $date,
+  'date' => $updated_date[0],
                                 
   );
   $array_data[]=$extra;
@@ -164,6 +168,9 @@ $new_active = money_format('%!i', $new_active);
 
 $date = $content_arr1['TT']['meta']['date'];
 
+$str=$content_arr1['TT']['meta']['last_updated'];
+$updated_date=explode("T",$str);
+
   $current_data=file_get_contents("$file_name");
   $array_data=json_decode($current_data,true);
   $extra=array(
@@ -175,7 +182,7 @@ $date = $content_arr1['TT']['meta']['date'];
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
   'deceased_cases' => $new_recover[0],
-  'date' => $date,
+  'date' => $updated_date[0],
                                 
   );
   $array_data[$l-1]=$extra;
@@ -187,10 +194,13 @@ $file_name='covid_data.json';
 // echo $new_confirm[0];
 // echo '<br/>';
 // echo (int)$content_arr3[$l-1]['confirm_cases']==(int)$new_confirm[0];
+$str=$content_arr1['TT']['meta']['last_updated'];
+$updated_date=explode("T",$str);
 $a=$content_arr3[$l-1]['date'];
 
-$b=$content_arr1['TT']['meta']['date'];
+$b=$updated_date[0];
 
+// echo gettype($string[0]);
 // echo $a;
 // echo '<br/>';
 // echo $b;

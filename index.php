@@ -96,7 +96,10 @@ $content_arr2=json_decode($content2,true);
   setlocale(LC_MONETARY, 'en_IN');
   $new_confirm = money_format('%!i', $new_confirm);
 
-  
+  $new_recover =$content_arr1['TT']['total']['recovered'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_recover= money_format('%!i', $new_recover);
+
 $new_deceased = $content_arr1['TT']['total']['deceased'];
 setlocale(LC_MONETARY, 'en_IN');
 $new_deceased = money_format('%!i', $new_deceased);
@@ -111,24 +114,94 @@ $date = $content_arr1['TT']['meta']['date'];
   $current_data=file_get_contents("$file_name");
   $array_data=json_decode($current_data,true);
   $extra=array(
+    'temp_confirm' => (int)$content_arr1['TT']['total']['confirmed'],
+    'temp_active' => (int)$content_arr2['state_tests_data'][0]['active'],
+    'temp_deceased' => (int)$content_arr1['TT']['total']['deceased'],
+    'temp_recover' => (int)$content_arr1['TT']['total']['recovered'],
   'confirm_cases' => $new_confirm[0],
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
+  'deceased_cases' => $new_recover[0],
   'date' => $date,
                                 
   );
   $array_data[]=$extra;
   return json_encode($array_data);
 }
+
+function get_updated_data()
+{
+
+  $file_name='covid_data.json';
+$content1=file_get_contents('https://data.covid19india.org/v4/data.json');
+$content_arr1=json_decode($content1,true);
+
+$content2=file_get_contents('http://covid19-nabeel6223.herokuapp.com/state_tests_data');
+$content_arr2=json_decode($content2,true);
+
+
+$content3=file_get_contents('https://indiancovid-19.herokuapp.com/covid_data.json');
+$content_arr3=json_decode($content3,true);
+
+$l= count($content_arr3);
+
+  $new_confirm = $content_arr1['TT']['total']['confirmed'];
+  setlocale(LC_MONETARY, 'en_IN');
+  $new_confirm = money_format('%!i', $new_confirm);
+
+  $new_recover =$content_arr1['TT']['total']['recovered'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_recover= money_format('%!i', $new_recover);
+
+$new_deceased = $content_arr1['TT']['total']['deceased'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_deceased = money_format('%!i', $new_deceased);
+
+
+$new_active = $content_arr2['state_tests_data'][0]['active'];
+setlocale(LC_MONETARY, 'en_IN');
+$new_active = money_format('%!i', $new_active);
+
+$date = $content_arr1['TT']['meta']['date'];
+
+  $current_data=file_get_contents("$file_name");
+  $array_data=json_decode($current_data,true);
+  $extra=array(
+    'temp_confirm' => (int)$content_arr1['TT']['total']['confirmed'],
+    'temp_active' => (int)$content_arr2['state_tests_data'][0]['active'],
+    'temp_deceased' => (int)$content_arr1['TT']['total']['deceased'],
+    'temp_recover' => (int)$content_arr1['TT']['total']['recovered'],
+  'confirm_cases' => $new_confirm[0],
+  'active_cases' => $new_active[0],
+  'deceased_cases' => $new_deceased[0],
+  'deceased_cases' => $new_recover[0],
+  'date' => $date,
+                                
+  );
+  $array_data[$l-1]=$extra;
+  return json_encode($array_data);
+}
+
 $file_name='covid_data.json';
 // echo $content_arr3[$l-1]['confirm_cases'];
 // echo $new_confirm[0];
 // echo '<br/>';
 // echo (int)$content_arr3[$l-1]['confirm_cases']==(int)$new_confirm[0];
-if(( (int)$content_arr3[$l-1]['confirm_cases']==(int)$new_confirm[0])!=1)
+$a=$content_arr3[$l-1]['date'];
+
+$b=$content_arr1['TT']['meta']['date'];
+
+// echo $a;
+// echo '<br/>';
+// echo $b;
+if($a!=$b)
 {
  
  file_put_contents("$file_name",get_data());
+}
+else if($a==$b)
+{
+  file_put_contents("$file_name",get_updated_data());
 }
 $diff_confirm=$content_arr['cases_time_series'][$len-1]['dailyconfirmed']-$content_arr['cases_time_series'][$len-2]['dailyconfirmed'];
 $diff_recover=$content_arr['cases_time_series'][$len-1]['dailyrecovered']-$content_arr['cases_time_series'][$len-2]['dailyrecovered'];

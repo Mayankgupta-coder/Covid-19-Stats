@@ -125,7 +125,7 @@ $updated_date=explode("T",$str);
   'confirm_cases' => $new_confirm[0],
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
-  'deceased_cases' => $new_recover[0],
+  'recover_cases' => $new_recover[0],
   'date' => $date,
                                 
   );
@@ -181,7 +181,7 @@ $updated_date=explode("T",$str);
   'confirm_cases' => $new_confirm[0],
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
-  'deceased_cases' => $new_recover[0],
+  'recover_cases' => $new_recover[0],
   'date' => $date,
                                 
   );

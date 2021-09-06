@@ -126,7 +126,7 @@ $updated_date=explode("T",$str);
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
   'deceased_cases' => $new_recover[0],
-  'date' => $updated_date[0],
+  'date' => $date,
                                 
   );
   $array_data[]=$extra;
@@ -182,7 +182,7 @@ $updated_date=explode("T",$str);
   'active_cases' => $new_active[0],
   'deceased_cases' => $new_deceased[0],
   'deceased_cases' => $new_recover[0],
-  'date' => $updated_date[0],
+  'date' => $date,
                                 
   );
   $array_data[$l-1]=$extra;
@@ -198,7 +198,7 @@ $str=$content_arr1['TT']['meta']['last_updated'];
 $updated_date=explode("T",$str);
 $a=$content_arr3[$l-1]['date'];
 
-$b=$updated_date[0];
+$b=$content_arr1['TT']['meta']['date'];
 
 // echo gettype($string[0]);
 // echo $a;

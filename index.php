@@ -127,7 +127,7 @@ $updated_date=explode("T",$str);
   'deceased_cases' => $new_deceased[0],
   'recover_cases' => $new_recover[0],
   'date' => $date,
-                                
+     'last_updated'=> $content_arr1['TT']['meta']['last_updated'],                          
   );
   $array_data[]=$extra;
   return json_encode($array_data);
@@ -183,7 +183,7 @@ $updated_date=explode("T",$str);
   'deceased_cases' => $new_deceased[0],
   'recover_cases' => $new_recover[0],
   'date' => $date,
-                                
+  'last_updated'=> $content_arr1['TT']['meta']['last_updated'],                            
   );
   $array_data[$l-1]=$extra;
   return json_encode($array_data);

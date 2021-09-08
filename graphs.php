@@ -10,6 +10,7 @@ $len1=count($content_arr['tested']);
 $content1=file_get_contents('https://indiancovid-19.herokuapp.com/covid_data.json');
 $content_arr1=json_decode($content1,true);
 $l=count($content_arr1);
+
 ?>
 
 <html>
@@ -122,6 +123,10 @@ google.charts.load('current', {'packages':['corechart']});
           <?php for($i=3;$i>=1;$i--)
           {
               $date=$content_arr1[$l-$i]['date'];
+              echo $date;
+              echo'<br/>';
+              echo $content_arr1[$l-$i]['confirm_cases'];
+              echo'<br/>';
               ?>
           ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['confirm_cases']?>],
           

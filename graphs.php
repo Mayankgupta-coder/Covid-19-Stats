@@ -184,7 +184,7 @@ google.charts.load('current', {'packages':['corechart']});
       function drawChart5() {
         var data5 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=12;$i>=1;$i--)
+          <?php for($i=3;$i>=1;$i--)
           {
               $date=$content_arr1[$l-$i]['date'];
               ?>

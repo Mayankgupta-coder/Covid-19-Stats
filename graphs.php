@@ -126,7 +126,7 @@ google.charts.load('current', {'packages':['corechart']});
           {
               $date=$content_arr1[$l-$i]['date'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['confirm_cases']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['temp_confirm']?>],
           
           <?php
           }

@@ -293,22 +293,22 @@ google.charts.load('current', {'packages':['corechart']});
     <div class="text">Statistical Analysis</div>
      <div class="chart_div">
      
-     <div class="chart_div_class">
-    <div id="curve_chart" class="chart" ></div>
-    <p class="para"> Daily Confirmed Cases</P>
-     </div>
+      <!-- <div class="chart_div_class">
+      <div id="curve_chart" class="chart" ></div>
+      <p class="para"> Daily Confirmed Cases</P>
+      </div>
 
-     <div class="chart_div_class">
-    <div id="curve_chart1" class="chart" ></div>
-    <p class="para"> Daily Recovered Cases</P>
-    </div>
+      <div class="chart_div_class">
+      <div id="curve_chart1" class="chart" ></div>
+      <p class="para"> Daily Recovered Cases</P>
+      </div> -->
      </div>
 
      <div class="chart_div">
-    <div class="chart_div_class">
+    <!-- <div class="chart_div_class">
     <div id="curve_chart2"  class="chart"></div>
     <p class="para"> Daily Deceased Cases</P>
-    </div>
+    </div> -->
 
     <div class="chart_div_class">
     <div id="curve_chart3"  class="chart"></div>

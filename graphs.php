@@ -152,11 +152,11 @@ google.charts.load('current', {'packages':['corechart']});
       function drawChart4() {
         var data4 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=12;$i>=1;$i--)
+          <?php for($i=3;$i>=1;$i--)
           {
-              $date=$content_arr['cases_time_series'][$len-$i]['date'];
+              $date=$content_arr1[$l-$i]['date'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['totalrecovered']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['temp_recover']?>],
           
           <?php
           }
@@ -186,9 +186,9 @@ google.charts.load('current', {'packages':['corechart']});
           ['Cases', ''],
           <?php for($i=12;$i>=1;$i--)
           {
-              $date=$content_arr['cases_time_series'][$len-$i]['date'];
+              $date=$content_arr1[$l-$i]['date'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['totaldeceased']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['temp_deceased']?>],
           
           <?php
           }

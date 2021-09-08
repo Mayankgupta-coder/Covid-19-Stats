@@ -254,11 +254,26 @@ $diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$conte
 
 </div>
 
-    </div>
-  <div class="v_div" id="v_div1"><?php echo $report[0]?> Cases Reported Yesterday</div>
-  <div class="v_div" id="v_div2"><?php echo $recovered[0]?> People Recovered Yesterday</div>
+    </div>]
+
+    <?php
+    $confirm_yestrerday=$content_arr3[$l-2]['temp_confirm']-$content_arr3[$l-3]['temp_confirm'];
+    setlocale(LC_MONETARY, 'en_IN');
+    $confirm_yestrerday = money_format('%!i',  $confirm_yestrerday);
+
+    $recover_yesterday=$content_arr3[$l-2]['temp_recover']-$content_arr3[$l-3]['temp_recover'];
+    setlocale(LC_MONETARY, 'en_IN');
+    $recover_yesterday = money_format('%!i', $recover_yesterday);
+
+    $deceased_yeasterday=$content_arr3[$l-2]['temp_deceased']-$content_arr3[$l-3]['temp_deceased'];
+    setlocale(LC_MONETARY, 'en_IN');
+    $deceased_yeasterday = money_format('%!i', $deceased_yeasterday);
+    ?>
+  <div class="v_div" id="v_div1"><?php echo  $confirm_yestrerday[0]?> Cases Reported Yesterday</div>
+  <div class="v_div" id="v_div2"><?php echo $recover_yesterday[0]?> People Recovered Yesterday</div>
+  <div class="v_div" id="v_div4"><?php echo $deceased_yeasterday[0] ?>  People Deceased Yesterday</div >
   <div class="v_div" id="v_div3"><?php echo $new_doses[0] ?>  Vaccine Doses Administered</div>
-  <!-- <div class="v_div" id="v_div4"><?php echo $vaccine[0] ?>  Total Indiviaduals Vaccinated</div > -->
+  
   <br/><br/>
   <?php require('footer.php'); ?>
 </body

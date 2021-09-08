@@ -305,10 +305,10 @@ google.charts.load('current', {'packages':['corechart']});
      </div>
 
      <div class="chart_div">
-    <!-- <div class="chart_div_class">
+    <div class="chart_div_class">
     <div id="curve_chart2"  class="chart"></div>
     <p class="para"> Daily Deceased Cases</P>
-    </div> -->
+    </div>
 
     <div class="chart_div_class">
     <div id="curve_chart3"  class="chart"></div>

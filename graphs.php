@@ -86,7 +86,7 @@ google.charts.load('current', {'packages':['corechart']});
           ['Cases', ''],
           <?php for($i=12;$i>=1;$i--)
           {
-              $date=$content_arr['cases_time_series'][$len-$i]['date'];
+              $date=$content_arr['cases_time_series'][$len-$i]['dateymd'];
               ?>
           ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['dailydeceased']?>],
           

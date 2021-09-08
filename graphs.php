@@ -6,6 +6,13 @@ $content=file_get_contents('https://api.covid19india.org/data.json');
 $content_arr=json_decode($content,true);
 $len=count($content_arr['cases_time_series']);
 $len1=count($content_arr['tested']);
+
+
+$content1=file_get_contents('https://indiancovid-19.herokuapp.com/covid_data.json');
+$content_arr1=json_decode($content1,true);
+
+$l= count($content_arr1);
+
 ?>
 
 <html>
@@ -86,7 +93,7 @@ google.charts.load('current', {'packages':['corechart']});
           ['Cases', ''],
           <?php for($i=12;$i>=1;$i--)
           {
-              $date=$content_arr['cases_time_series'][$len-$i]['dateymd'];
+              $date=$content_arr['cases_time_series'][$len-$i]['date'];
               ?>
           ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['dailydeceased']?>],
           
@@ -115,11 +122,11 @@ google.charts.load('current', {'packages':['corechart']});
       function drawChart3() {
         var data3 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=12;$i>=1;$i--)
+          <?php for($i=2;$i>=1;$i--)
           {
-              $date=$content_arr['cases_time_series'][$len-$i]['date'];
+              $date=$content_arr1[$l-$i]['date'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['totalconfirmed']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['confirm_cases']?>],
           
           <?php
           }

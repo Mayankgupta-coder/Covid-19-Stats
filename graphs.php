@@ -126,7 +126,7 @@ google.charts.load('current', {'packages':['corechart']});
           {
               $date=$content_arr1[$l-$i]['date'];
               ?>
-          ['<?php echo $date?>',  <?php echo bd_nice_number($content_arr1[$l-$i]['temp_confirm'])?>],
+          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['temp_confirm']?>],
           
           <?php
           }

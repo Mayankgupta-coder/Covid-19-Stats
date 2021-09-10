@@ -290,7 +290,7 @@ google.charts.load('current', {'packages':['corechart']});
 <body>
     <br/>
     <br/>
-    <div class="text">Statistical Analysis</div>
+    <div class="text">Graphical Analysis</div>
      <div class="chart_div">
      
       <!-- <div class="chart_div_class">

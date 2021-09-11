@@ -44,6 +44,11 @@
           <h6 class="logo">Covid-19 Dashboard</h6>
       </div>
   </nav>
+  <section class="showcase-area" id="showcase">
+      <div class="showcase-container">
+        
+      </div>
+    </section>
 
 
     <!-- Optional JavaScript -->

@@ -107,13 +107,13 @@ body {
 /* ............//// Showcase styling ////......... */
 
 .showcase-area {
-  height: 60vh;
+  height: 57vh;
   
   background: linear-gradient(
       rgba(240, 240, 240, 0.144),
       rgba(255, 255, 255, 0.336)
     ),
-    url("https://andersontownshipoh.gov/Portals/andersontownship/Images/News/2020%20Images/COVID-19-Update.jpg");
+    url("../images/updates.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

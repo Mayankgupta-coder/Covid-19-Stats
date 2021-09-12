@@ -269,9 +269,9 @@ $diff_deceased=$content_arr['cases_time_series'][$len-1]['dailydeceased']-$conte
     setlocale(LC_MONETARY, 'en_IN');
     $deceased_yeasterday = money_format('%!i', $deceased_yeasterday);
     ?>
-  <div class="v_div" id="v_div1"><?php echo  $confirm_yestrerday[0]?> Cases Reported Yesterday</div>
-  <div class="v_div" id="v_div2"><?php echo $recover_yesterday[0]?> People Recovered Yesterday</div>
-  <div class="v_div" id="v_div4"><?php echo $deceased_yeasterday[0] ?>  People Deceased Yesterday</div >
+  <div class="v_div" id="v_div1"><?php echo  $confirm_yestrerday[0]?> Cases Reported on <?php echo $content_arr3[$l-2]['date']?></div>
+  <div class="v_div" id="v_div2"><?php echo $recover_yesterday[0]?> People Recovered on <?php echo $content_arr3[$l-2]['date']?></div>
+  <div class="v_div" id="v_div4"><?php echo $deceased_yeasterday[0] ?>  People Deceased on <?php echo $content_arr3[$l-2]['date']?></div >
   <div class="v_div" id="v_div3"><?php echo $new_doses[0] ?>  Vaccine Doses Administered</div>
   
   <br/><br/>

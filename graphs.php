@@ -271,34 +271,76 @@ google.charts.load('current', {'packages':['corechart']});
 
       //   Total vaccination
 
- google.charts.load('current', {'packages':['corechart']});
+//  google.charts.load('current', {'packages':['corechart']});
+//       google.charts.setOnLoadCallback(drawChart7);
+
+//       function drawChart7() {
+//         var data7 = google.visualization.arrayToDataTable([
+//           ['registration', ''],
+//           <?php for($i=12;$i>=1;$i--)
+//           {
+//               $date=$content_arr['tested'][$len1-$i]['testedasof'];
+//               ?>
+//           ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsvaccinated']?>],
+          
+//           <?php
+//           }
+//           ?>
+//         ]);
+
+//         var options7= {
+          
+//           curveType: 'function',
+//           legend: { position: 'bottom' }
+//         };
+
+//         var chart7 = new google.visualization.LineChart(document.getElementById('curve_chart7'));
+
+//         chart7.draw(data7, options7);
+        
+//       }
+
+      google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart7);
 
-      function drawChart7() {
-        var data7 = google.visualization.arrayToDataTable([
-          ['registration', ''],
-          <?php for($i=12;$i>=1;$i--)
-          {
-              $date=$content_arr['tested'][$len1-$i]['testedasof'];
-              ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsvaccinated']?>],
-          
-          <?php
-          }
-          ?>
-        ]);
+    function drawChart7() {
 
-        var options7= {
-          
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
+      var data7 = new google.visualization.DataTable();
+      data7.addColumn('number', 'Day');
+      data7.addColumn('number', 'Guardians of the Galaxy');
+      data7.addColumn('number', 'The Avengers');
+      data7.addColumn('number', 'Transformers: Age of Extinction');
 
-        var chart7 = new google.visualization.LineChart(document.getElementById('curve_chart7'));
+      data7.addRows([
+        [1,  37.8, 80.8, 41.8],
+        [2,  30.9, 69.5, 32.4],
+        [3,  25.4,   57, 25.7],
+        [4,  11.7, 18.8, 10.5],
+        [5,  11.9, 17.6, 10.4],
+        [6,   8.8, 13.6,  7.7],
+        [7,   7.6, 12.3,  9.6],
+        [8,  12.3, 29.2, 10.6],
+        [9,  16.9, 42.9, 14.8],
+        [10, 12.8, 30.9, 11.6],
+        [11,  5.3,  7.9,  4.7],
+        [12,  6.6,  8.4,  5.2],
+        [13,  4.8,  6.3,  3.6],
+        [14,  4.2,  6.2,  3.4]
+      ]);
 
-        chart7.draw(data7, options7);
-        
-      }
+      var options7 = {
+        chart7: {
+          title: 'Box Office Earnings in First Two Weeks of Opening',
+          subtitle: 'in millions of dollars (USD)'
+        },
+        width: 900,
+        height: 500
+      };
+
+      var chart7 = new google.charts.Line(document.getElementById('curve_chart7'));
+
+      chart7.draw(data7, google.charts.Line.convertOptions(options7));
+    }
 
       $(window).resize(function(){
      
@@ -365,10 +407,10 @@ google.charts.load('current', {'packages':['corechart']});
       <p class="para">  Total Individuals Registered For Vaccination</P>
       </div> -->
 
-      <!-- <div class="chart_div_class">
+      <div class="chart_div_class">
       <div id="curve_chart7"  class="chart"></div>
       <p class="para">  Total Individuals Vaccinated</P>
-      </div> -->
+      </div>
   </div>
 </div>
 </body>

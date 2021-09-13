@@ -271,68 +271,36 @@ google.charts.load('current', {'packages':['corechart']});
 
       //   Total vaccination
 
-//  google.charts.load('current', {'packages':['corechart']});
-//       google.charts.setOnLoadCallback(drawChart7);
-
-//       function drawChart7() {
-//         var data7 = google.visualization.arrayToDataTable([
-//           ['registration', ''],
-//           <?php for($i=12;$i>=1;$i--)
-//           {
-//               $date=$content_arr['tested'][$len1-$i]['testedasof'];
-//               ?>
-//           ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsvaccinated']?>],
-          
-//           <?php
-//           }
-//           ?>
-//         ]);
-
-//         var options7= {
-          
-//           curveType: 'function',
-//           legend: { position: 'bottom' }
-//         };
-
-//         var chart7 = new google.visualization.LineChart(document.getElementById('curve_chart7'));
-
-//         chart7.draw(data7, options7);
-        
-//       }
-
-      google.charts.load('current', {'packages':['line']});
+ google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart7);
 
-    function drawChart7() {
-
-      var data7 = new google.visualization.DataTable();
-      data7.addColumn('number', '');
-      data7.addColumn('number', 'cases');
-     
-      data7.addRows([
-        <?php for($i=8;$i>=1;$i--)
+      function drawChart7() {
+        var data7 = google.visualization.arrayToDataTable([
+          ['registration', ''],
+          <?php for($i=12;$i>=1;$i--)
           {
-              $date=$content_arr1[$l-$i]['date'];
+              $date=$content_arr['tested'][$len1-$i]['testedasof'];
               ?>
-        ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['temp_deceased']?>],
-        <?php
+          ['<?php echo $date?>',  <?php echo $content_arr['tested'][$len1-$i]['totalindividualsvaccinated']?>],
+          
+          <?php
           }
           ?>
-      ]);
+        ]);
 
-      var options7 = {
-        chart7: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'in millions of dollars (USD)'
-        },
-        width: 900,
-        height: 500
-      };
+        var options7= {
+          
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
 
-      var chart7 = new google.charts.Line(document.getElementById('curve_chart7'));
+        var chart7 = new google.visualization.LineChart(document.getElementById('curve_chart7'));
 
-      chart7.draw(data7, google.charts.Line.convertOptions(options7));
-    }
+        chart7.draw(data7, options7);
+        
+      }
+
+      
 
       $(window).resize(function(){
      
@@ -399,10 +367,10 @@ google.charts.load('current', {'packages':['corechart']});
       <p class="para">  Total Individuals Registered For Vaccination</P>
       </div> -->
 
-      <div class="chart_div_class">
+      <!-- <div class="chart_div_class">
       <div id="curve_chart7"  class="chart"></div>
       <p class="para">  Total Individuals Vaccinated</P>
-      </div>
+      </div> -->
   </div>
 </div>
 </body>

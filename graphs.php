@@ -122,7 +122,7 @@ google.charts.load('current', {'packages':['corechart']});
       function drawChart3() {
         var data3 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=7;$i>=1;$i--)
+          <?php for($i=8;$i>=1;$i--)
           {
               $date=$content_arr1[$l-$i]['date'];
               ?>
@@ -152,7 +152,7 @@ google.charts.load('current', {'packages':['corechart']});
       function drawChart4() {
         var data4 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=7;$i>=1;$i--)
+          <?php for($i=8;$i>=1;$i--)
           {
               $date=$content_arr1[$l-$i]['date'];
               ?>
@@ -184,7 +184,7 @@ google.charts.load('current', {'packages':['corechart']});
       function drawChart5() {
         var data5 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=7;$i>=1;$i--)
+          <?php for($i=8;$i>=1;$i--)
           {
               $date=$content_arr1[$l-$i]['date'];
               ?>

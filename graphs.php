@@ -141,7 +141,7 @@ google.charts.load('current', {'packages':['corechart']});
 
         var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
 
-        chart2.draw(data2, google.charts.Line.convertOptions(options2));
+        chart2.draw(data2, options2);
         
       }
 

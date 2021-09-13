@@ -85,24 +85,55 @@ google.charts.load('current', {'packages':['corechart']});
       }
 
     //   Daily Deceased
-      google.charts.load('current', {'packages':['corechart']});
+      // google.charts.load('current', {'packages':['corechart']});
+      // google.charts.setOnLoadCallback(drawChart2);
+
+      // function drawChart2() {
+      //   var data2 = google.visualization.arrayToDataTable([
+      //     ['Cases', ''],
+      //     <?php for($i=12;$i>=1;$i--)
+      //     {
+      //         $date=$content_arr['cases_time_series'][$len-$i]['date'];
+      //         ?>
+      //     ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['dailydeceased']?>],
+          
+      //     <?php
+      //     }
+      //     ?>
+      //   ]);
+
+      //   var options2= {
+          
+      //     curveType: 'function',
+      //     legend: { position: 'bottom' }
+      //   };
+
+      //   var chart2 = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+      //   chart2.draw(data2, options2);
+        
+      // }
+
+
+//Total active
+google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart2);
 
       function drawChart2() {
         var data2 = google.visualization.arrayToDataTable([
           ['Cases', ''],
-          <?php for($i=12;$i>=1;$i--)
+          <?php for($i=8;$i>=1;$i--)
           {
-              $date=$content_arr['cases_time_series'][$len-$i]['date'];
+              $date=$content_arr1[$l-$i]['date'];
               ?>
-          ['<?php echo $date?>',  <?php echo $content_arr['cases_time_series'][$len-$i]['dailydeceased']?>],
+          ['<?php echo $date?>',  <?php echo $content_arr1[$l-$i]['temp_active']?>],
           
           <?php
           }
           ?>
         ]);
 
-        var options2= {
+        var options2 = {
           
           curveType: 'function',
           legend: { position: 'bottom' }
@@ -113,7 +144,6 @@ google.charts.load('current', {'packages':['corechart']});
         chart2.draw(data2, options2);
         
       }
-
 
     //   Total Confirmed
       google.charts.load('current', {'packages':['corechart']});
@@ -307,7 +337,7 @@ google.charts.load('current', {'packages':['corechart']});
      <div class="chart_div">
     <div class="chart_div_class">
     <div id="curve_chart2"  class="chart"></div>
-    <p class="para"> Daily Deceased Cases</P>
+    <p class="para"> Total Active Cases</P>
     </div>
 
     <div class="chart_div_class">

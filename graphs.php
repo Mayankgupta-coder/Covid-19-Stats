@@ -306,8 +306,8 @@ google.charts.load('current', {'packages':['corechart']});
     function drawChart7() {
 
       var data7 = new google.visualization.DataTable();
-      data7.addColumn('number', 'Day');
-      data7.addColumn('number', 'Guardians of the Galaxy');
+      data7.addColumn('number', 'cases');
+      data7.addColumn('number', '');
       data7.addColumn('number', 'The Avengers');
       data7.addColumn('number', 'Transformers: Age of Extinction');
 

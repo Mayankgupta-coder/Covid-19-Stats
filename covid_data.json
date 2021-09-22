@@ -179,15 +179,27 @@
     "last_updated": "2021-09-20T16:45:42+05:30"
     },
     {
-    "temp_confirm": 33505292,
-    "temp_active": 304524,
-    "temp_deceased": 445425,
-    "temp_recover": 32742385,
-    "confirm_cases": "33,505,292",
-    "active_cases": "304,524",
-    "deceased_cases": "445,425",
-    "recover_cases": "32,742,385",
+    "temp_confirm": 33530092,
+    "temp_active": 295107,
+    "temp_deceased": 445801,
+    "temp_recover": 32776222,
+    "confirm_cases": "33,530,092",
+    "active_cases": "295,107",
+    "deceased_cases": "445,801",
+    "recover_cases": "32,776,222",
     "date": "2021-09-21",
     "last_updated": "2021-09-21T16:45:35+05:30"
+    },
+    {
+    "temp_confirm": 33532515,
+    "temp_active": 297211,
+    "temp_deceased": 445812,
+    "temp_recover": 32776530,
+    "confirm_cases": "33,532,515",
+    "active_cases": "297,211",
+    "deceased_cases": "445,812",
+    "recover_cases": "32,776,530",
+    "date": "2021-09-22",
+    "last_updated": "2021-09-22T15:19:24+05:30"
     }
     ]
